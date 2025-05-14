@@ -8,5 +8,5 @@ export interface Parceiro{
     areaAtuacao:string,
     tipoParceiro: string,
     logo?:string,
-    documento?:string
+    documento:string
   }
