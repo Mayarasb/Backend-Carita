@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import express from "express";
-import { create, listAll, update } from "../controllers/organizacao.controller";
+import { create, getById, listAll, update } from "../controllers/organizacao.controller";
 
 const router = express.Router();
 
@@ -11,8 +11,7 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.get("/:id", async (req: Request, res: Response) => {
     const id = Number(req.params.id);
-    const organizacoes = await listAll(); 
-    const organizacao = organizacoes.find((organizacao) => organizacao.id === id);
+    const organizacao = await getById(id); 
   
     if (!organizacao) {
     res.status(404).send({ message: "Organização não encontrada" });

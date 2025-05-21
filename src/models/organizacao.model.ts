@@ -134,7 +134,7 @@ OrganizacaoModel.init({
 },
   {
     sequelize, 
-    tableName: 'organizacoes', 
+    tableName: 'organizacao', 
     modelName: 'Organizacao',  
     timestamps: false,       
   }
