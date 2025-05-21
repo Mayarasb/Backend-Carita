@@ -5,6 +5,14 @@ export const listAll = async (): Promise<Organizacao[]> => {
     const organizacoes = await OrganizacaoModel.findAll();
     return organizacoes;
 };
+export const getById = async (id:number): Promise<Organizacao | null> => {
+    const organizacoes = await OrganizacaoModel.findOne({
+        where:{ 
+            id: id
+        }
+    });
+    return organizacoes;
+};
 
 export const create = async (dadosOrganizacao: Organizacao): Promise<Organizacao> => {
     const novaOrganizacao = await OrganizacaoModel.create(dadosOrganizacao);
