@@ -70,7 +70,7 @@ ParceiroModel.init({
 },
   {
     sequelize, 
-    tableName: 'parceiros', 
+    tableName: 'parceiro', 
     modelName: 'Parceiros',  
     timestamps: false,       
   }

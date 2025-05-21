@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import express from "express";
-import { create, listAll, update } from "../controllers/usuario.controller";
+import { create, listAll, update, getById } from "../controllers/usuario.controller";
 
 const router = express.Router();
 
@@ -9,6 +9,17 @@ router.get("/", async (req: Request, res: Response) => {
     const usuarios = await listAll();
     res.json({ usuarios });
 });
+
+router.get("/:id", async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    const usuario = await getById(id); 
+  
+    if (!usuario) {
+    res.status(404).send({ message: "Usuario não encontrado" });
+    }
+  
+    res.status(200).json(usuario);
+  });
 
 router.post("/", async (req: Request, res: Response) => {
     const usuario = await create(req.body);
