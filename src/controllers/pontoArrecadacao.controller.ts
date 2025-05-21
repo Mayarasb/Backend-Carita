@@ -6,6 +6,15 @@ export const listAll = async (): Promise<pontoArrecadacao[]> => {
     return pontosArrecadacao;
 };
 
+export const getById = async (id:number): Promise<pontoArrecadacao | null> => {
+    const pontoArrecadacao = await pontoArrecadacaoModel.findOne({
+        where:{ 
+            id: id
+        }
+    });
+    return pontoArrecadacao;
+};
+
 export const create = async (dadosPontoArrecadacao: pontoArrecadacao): Promise<pontoArrecadacao> => {
     const novoPonto = await pontoArrecadacaoModel.create(dadosPontoArrecadacao);
     return novoPonto;

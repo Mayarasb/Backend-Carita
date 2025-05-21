@@ -6,6 +6,15 @@ export const listAll = async (): Promise<Usuario[]> => {
     return usuarios;
 };
 
+export const getById = async (id:number): Promise<Usuario| null> => {
+    const usuario = await UsuarioModel.findOne({
+        where:{ 
+            id: id
+        }
+    });
+    return usuario;
+};
+
 export const create = async (dadosUsuario: Usuario): Promise<Usuario> => {
     const novoUsuario = await UsuarioModel.create(dadosUsuario);
     return novoUsuario;
