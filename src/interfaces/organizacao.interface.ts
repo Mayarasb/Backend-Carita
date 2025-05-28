@@ -19,5 +19,6 @@ export interface Organizacao{
   descricaoInstituicao: string,
   qrCode:string,
   logo?:string,
-  documento?:string
+  documento?:string,
+  idUsuario:number
 }

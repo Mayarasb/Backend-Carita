@@ -39,6 +39,16 @@ module.exports = {
        allowNull: false, 
            type: DataTypes.STRING(100),
      },
+       idParceiro: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'parceiro', 
+          key: 'id'         
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      }
   })
   },
 
