@@ -7,5 +7,6 @@ export interface pontoArrecadacao{
     cidade:string,
     estado:string,
     cep: string,
-    horarioFuncionamento:string
+    horarioFuncionamento:string,
+    idParceiro: number
   }

@@ -10,6 +10,7 @@ export class UsuarioModel extends Model<Usuario , UsuarioCreationalAttributes> {
   public cpf!: string;
   public email!: string;
   public senha!: string;
+  public status!: boolean;
 }
 
 UsuarioModel.init({
@@ -35,6 +36,12 @@ UsuarioModel.init({
         field: "senha",
         type: DataTypes.STRING(100),
   },
+  status:{
+    allowNull: false, 
+        field: "status",
+        type: DataTypes.BOOLEAN,
+  }
+
 },
   {
     sequelize, 

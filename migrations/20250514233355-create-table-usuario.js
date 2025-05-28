@@ -12,19 +12,20 @@ module.exports = {
       },
       cpf: {
         allowNull: false,
-        field: "cpf",
         type: DataTypes.STRING(100),
       },
       email:{
         allowNull: false, 
-            field: "email",
             type: DataTypes.STRING(100),
       },
       senha:{
         allowNull: false, 
-            field: "senha",
             type: DataTypes.STRING(100),
       },
+      status:{
+        allowNull: false, 
+            type: DataTypes.BOOLEAN
+      }
    }
   )},
 

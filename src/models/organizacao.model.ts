@@ -26,6 +26,7 @@ export class OrganizacaoModel extends Model<Organizacao, OrganizacaoCreationalAt
   public logo!: string;
   public documento!: string;
   public qrCode!: string;
+  public idUsuario!:number;
 }
 
 OrganizacaoModel.init({
@@ -131,6 +132,15 @@ OrganizacaoModel.init({
         field: "qrCode",
         type: DataTypes.STRING(100),
   },
+  idUsuario: {
+  type: DataTypes.INTEGER,
+  allowNull: false,
+  references: {
+    model: 'usuario',
+    key: 'id', 
+  },
+  field: 'idUsuario', 
+}
 },
   {
     sequelize, 

@@ -9,4 +9,5 @@ export interface Parceiro{
     tipoParceiro: string,
     logo?:string,
     documento:string
+    idUsuario: number
   }

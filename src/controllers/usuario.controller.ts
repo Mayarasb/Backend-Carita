@@ -1,3 +1,4 @@
+import { promises } from "dns";
 import { Usuario } from "../interfaces/usuario.interface";
 import { UsuarioModel } from "../models/usuario.model";
 
@@ -27,3 +28,14 @@ export const update = async (id: number, data: Partial<Usuario>): Promise<Usuari
     await usuario.update(data);
     return usuario;
 };
+
+export const desativar = async(id:number):Promise<boolean> =>{
+    const [nro_linhas_alteradas] = await UsuarioModel.update({
+        status: false 
+    }, {
+        where:{
+            id:id
+        }
+    })
+    return !!nro_linhas_alteradas;
+}

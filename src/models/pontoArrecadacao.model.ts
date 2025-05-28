@@ -14,6 +14,7 @@ export class pontoArrecadacaoModel extends Model<pontoArrecadacao, pontoArrecada
   public estado!: string;
   public cep!: string;
   public horarioFuncionamento!: string; 
+ public idParceiro!:number;
 }
 
 pontoArrecadacaoModel.init({
@@ -60,6 +61,15 @@ pontoArrecadacaoModel.init({
         field: "horario",
         type: DataTypes.STRING(100),
   },
+  idParceiro: {
+  type: DataTypes.INTEGER,
+  allowNull: false,
+  references: {
+    model: 'parceiro', 
+    key: 'id', 
+  },
+  field: 'idParceiro', 
+}
 },
   {
     sequelize, 

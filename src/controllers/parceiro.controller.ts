@@ -28,3 +28,4 @@ export const update = async (id: number, data: Partial<Parceiro>): Promise<Parce
     await parceiro.update(data);
     return parceiro;
 };
+

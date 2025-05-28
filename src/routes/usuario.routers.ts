@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import express from "express";
-import { create, listAll, update, getById } from "../controllers/usuario.controller";
+import { create, listAll, update, getById, desativar  } from "../controllers/usuario.controller";
 
 const router = express.Router();
 
@@ -32,4 +32,16 @@ router.put("/:id", async (req: Request, res: Response) => {
     res.json(updated);
 });
 
+router.post("/:id/desativar", async (req: Request, res: Response) => {
+  const id = Number(req.params.id);
+
+  const desativado = await desativar(id);
+
+  if (!desativado) {
+    res.status(404).json({ message: "Usuário não encontrado ou já desativado." });
+    return;
+  }
+
+  res.status(200).json({ message: "Conta desativada com sucesso." });
+});
 export default router;

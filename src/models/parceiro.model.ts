@@ -15,6 +15,7 @@ export class ParceiroModel extends Model<Parceiro, ParceiroCreationalAttributes>
   public areaAtuacao!: string;
   public logo!: string;
   public documento!: string;
+  public idUsuario!: number;
 }
 
 ParceiroModel.init({
@@ -67,6 +68,15 @@ ParceiroModel.init({
         field: "documento",
         type: DataTypes.STRING(100),
   },
+  idUsuario: {
+  type: DataTypes.INTEGER,
+  allowNull: false,
+  references: {
+    model: 'usuario', 
+    key: 'id', 
+  },
+  field: 'idUsuario', 
+}
 },
   {
     sequelize, 
