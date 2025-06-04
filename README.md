@@ -42,7 +42,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 
 ## 🎯 **Objetivos de Desenvolvimento Sustentável (ODS)**
 
-![Image](https://github.com/user-attachments/assets/642b0e1c-a379-44f7-9953-eed1dcb629d3)
+![3](https://github.com/user-attachments/assets/404e604a-eb87-40e2-b8c7-58eeab32c2d5)
 
 
 ## 📅 ENTREGA DAS SPRINTS
