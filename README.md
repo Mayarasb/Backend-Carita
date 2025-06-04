@@ -100,7 +100,8 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 ![Image](https://github.com/user-attachments/assets/b5f3b9ca-f41f-40b5-8606-38eb6485759b)
 
 ## 📚 BACKLOG
-![Image](https://github.com/user-attachments/assets/45063692-2602-4a8e-879a-09cfb453b42c)
+![image](https://github.com/user-attachments/assets/46cbce5b-b121-45cb-a93d-97a737753b18)
+
 
 ## 🖥️ PROTÓTIPO E DOCUMENTAÇÃO
 
