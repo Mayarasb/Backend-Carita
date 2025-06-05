@@ -6,11 +6,12 @@ dotenv.config();
 
  
 export const authRouter = express.Router();
+
  
 authRouter.post("/", (req: Request, res: Response) => {
   const { username, password } = req.body;
  
-  if (username === "usuario" && password === "123456") {
+  if (username === "usuario" && password === "123456") { //mudar esse 
     const secret = process.env.AUTH_SECRET || "";
     const token = jwt.sign({ username: "usuario" }, secret);
     res.status(200).json({ token });
