@@ -1,8 +1,11 @@
 import { Request, Response, Router } from "express";
 import express from "express";
 import { create, getById, listAll, update } from "../controllers/organizacao.controller";
+import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
 
 const router = express.Router();
+
+router.use(AuthorizeMiddleware);
 
 router.get("/", async (req: Request, res: Response) => {
     const organizacoes = await listAll();
