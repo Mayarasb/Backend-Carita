@@ -44,7 +44,7 @@ module.exports = {
         type: DataTypes.INTEGER,
         references: {
           model: 'parceiro', 
-          key: 'id'         
+          key: 'id_parceiro'         
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'

@@ -14,9 +14,17 @@ export const getById = async (id:number): Promise<Organizacao | null> => {
     return organizacoes;
 };
 
-export const create = async (dadosOrganizacao: Organizacao): Promise<Organizacao> => {
-    const novaOrganizacao = await OrganizacaoModel.create(dadosOrganizacao);
-    return novaOrganizacao;
+export const create = async (dadosOrganizacao: Organizacao): Promise<Organizacao | undefined> => {
+    // dadosOrganizacao.id = 1
+
+    try{
+    console.log(JSON.stringify(dadosOrganizacao));
+        const novaOrganizacao = await OrganizacaoModel.create(dadosOrganizacao);
+        return novaOrganizacao;
+    } catch(error){
+        console.log(">>> ", error)
+        return undefined;
+    }
 };
 
 export const update = async (id: number, data: Partial<Organizacao>): Promise<Organizacao | null> => {
