@@ -92,7 +92,7 @@ module.exports = {
         type: DataTypes.INTEGER,
         references: {
           model: 'usuario', 
-          key: 'id'         
+          key: 'id_usuario'         
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'

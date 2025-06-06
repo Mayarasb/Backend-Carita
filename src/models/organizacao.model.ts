@@ -27,6 +27,9 @@ export class OrganizacaoModel extends Model<Organizacao, OrganizacaoCreationalAt
   public documento!: string;
   public qrCode!: string;
   public idUsuario!:number;
+
+  
+  
 }
 
 OrganizacaoModel.init({

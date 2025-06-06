@@ -5,7 +5,7 @@ import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
 
 const router = express.Router();
 
-router.use(AuthorizeMiddleware);
+//router.use(AuthorizeMiddleware);
 
 router.get("/", async (req: Request, res: Response) => {
     const organizacoes = await listAll();
@@ -24,8 +24,14 @@ router.get("/:id", async (req: Request, res: Response) => {
   });
 
 router.post("/", async (req: Request, res: Response) => {
-    const organizacao = await create(req.body);
-    res.json(organizacao);
+    try {
+        console.log(req.body);
+        const organizacao = await create(req.body);
+        res.json(organizacao);
+        
+    } catch (error) {
+        res.json({error})
+    }
 });
 
 router.put("/:id", async (req: Request, res: Response) => {
