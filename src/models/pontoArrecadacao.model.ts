@@ -66,7 +66,7 @@ pontoArrecadacaoModel.init({
   allowNull: false,
   references: {
     model: 'parceiro', 
-    key: 'id', 
+    key: 'id_parceiro', 
   },
   field: 'idParceiro', 
 }

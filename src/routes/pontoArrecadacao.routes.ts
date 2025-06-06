@@ -4,7 +4,7 @@ import { create, listAll, update, getById } from "../controllers/pontoArrecadaca
 import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
 
 const router = express.Router();
-router.use(AuthorizeMiddleware);
+//router.use(AuthorizeMiddleware);
 
 
 router.get("/", async (req: Request, res: Response) => {

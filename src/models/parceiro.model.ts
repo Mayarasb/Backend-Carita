@@ -73,7 +73,7 @@ ParceiroModel.init({
   allowNull: false,
   references: {
     model: 'usuario', 
-    key: 'id', 
+    key: 'id_usuario', 
   },
   field: 'idUsuario', 
 }
