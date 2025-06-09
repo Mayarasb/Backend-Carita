@@ -28,6 +28,7 @@ UsuarioModel.init({
   },
   email:{
     allowNull: false, 
+    unique: true,
         field: "email",
         type: DataTypes.STRING(100),
   },

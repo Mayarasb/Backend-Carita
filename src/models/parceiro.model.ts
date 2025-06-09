@@ -33,6 +33,7 @@ ParceiroModel.init({
   },
   cnpj: {
     allowNull: false,
+    unique: true,
     field: "cnpj",
     type: DataTypes.STRING(100),
   },

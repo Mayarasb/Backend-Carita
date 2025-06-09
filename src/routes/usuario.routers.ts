@@ -2,15 +2,29 @@ import { Request, Response, Router } from "express";
 import express from "express";
 import { create, listAll, update, getById, desativar  } from "../controllers/usuario.controller";
 import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
+import bcrypt from"bcrypt"
 
 const router = express.Router();
-router.use(AuthorizeMiddleware);
 
+router.post("/", async (req: Request, res: Response) => {
+  const usuario = req.body;
+  
+  const senhaHash = await bcrypt.hash(usuario.senha, 10)
+  usuario.senha = senhaHash;
+
+    // const usuario = req.body;
+    // usuario.senha = senhaHash;
+    await create(usuario);
+    delete(usuario.senha);
+    res.json(usuario);
+});
+
+router.use(AuthorizeMiddleware);
 
 router.get("/", async (req: Request, res: Response) => {
     const usuarios = await listAll();
     res.json({ usuarios });
-});
+})
 
 router.get("/:id", async (req: Request, res: Response) => {
     const id = Number(req.params.id);
@@ -21,18 +35,13 @@ router.get("/:id", async (req: Request, res: Response) => {
     }
   
     res.status(200).json(usuario);
-  });
-
-router.post("/", async (req: Request, res: Response) => {
-    const usuario = await create(req.body);
-    res.json(usuario);
-});
+  })
 
 router.put("/:id", async (req: Request, res: Response) => {
     const { id } = req.params;
     const updated = await update(Number(id), req.body);
     res.json(updated);
-});
+})
 
 router.post("/:id/desativar", async (req: Request, res: Response) => {
   const id = Number(req.params.id);
@@ -45,5 +54,6 @@ router.post("/:id/desativar", async (req: Request, res: Response) => {
   }
 
   res.status(200).json({ message: "Conta desativada com sucesso." });
-});
+})
+
 export default router;

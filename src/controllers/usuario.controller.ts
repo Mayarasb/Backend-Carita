@@ -16,6 +16,15 @@ export const getById = async (id:number): Promise<Usuario| null> => {
     return usuario;
 };
 
+export const getByEmail = async (email: string) => {
+    const usuario = await UsuarioModel.findOne({
+        where: {
+            email: email
+        }
+    });
+    return usuario;
+}
+
 export const create = async (dadosUsuario: Usuario): Promise<Usuario> => {
     const novoUsuario = await UsuarioModel.create(dadosUsuario);
     return novoUsuario;
