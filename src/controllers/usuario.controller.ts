@@ -26,8 +26,13 @@ export const getByEmail = async (email: string) => {
 }
 
 export const create = async (dadosUsuario: Usuario): Promise<Usuario> => {
+  try {
     const novoUsuario = await UsuarioModel.create(dadosUsuario);
     return novoUsuario;
+  } catch (error) {
+    console.error("❌ Erro no controller ao criar usuário:", error); // <-- Mostra erro detalhado
+    throw error;
+  }
 };
 
 export const update = async (id: number, data: Partial<Usuario>): Promise<Usuario| null> => {
