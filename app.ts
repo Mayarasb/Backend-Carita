@@ -4,10 +4,13 @@ import parceiroRoutes from "./src/routes/parceiro.routes"
 import  pontoArrecadacaoRoutes from "./src/routes/pontoArrecadacao.routes"
 import usuarioRoutes from "./src/routes/usuario.routers"
 import { authRouter } from "./src/routes/auth.routes";
+import cors from 'cors';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
+
 
 app.use("/organizacoes", organizacaoRoutes);
 app.use("/parceiros",parceiroRoutes)

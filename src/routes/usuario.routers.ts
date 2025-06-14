@@ -7,16 +7,22 @@ import bcrypt from"bcrypt"
 const router = express.Router();
 
 router.post("/", async (req: Request, res: Response) => {
-  const usuario = req.body;
-  
-  const senhaHash = await bcrypt.hash(usuario.senha, 10)
-  usuario.senha = senhaHash;
+  try {
+    const usuario = req.body;
 
-    // const usuario = req.body;
-    // usuario.senha = senhaHash;
-    await create(usuario);
-    delete(usuario.senha);
-    res.json(usuario);
+    const senhaHash = await bcrypt.hash(usuario.senha, 10);
+    usuario.senha = senhaHash;
+
+    const novoUsuario = await create(usuario);
+
+    // Remover campos antes de enviar para o frontend
+    const { senha, status, id, ...usuarioPublico } = novoUsuario.toJSON();
+
+    res.status(201).json(usuarioPublico);
+  } catch (error) {
+    console.error("Erro ao cadastrar usuário:", error);
+    res.status(400).json({ message: "Campos obrigatórios ausentes ou inválidos." });
+  }
 });
 
 router.use(AuthorizeMiddleware);
@@ -25,6 +31,8 @@ router.get("/", async (req: Request, res: Response) => {
     const usuarios = await listAll();
     res.json({ usuarios });
 })
+
+
 
 router.get("/:id", async (req: Request, res: Response) => {
     const id = Number(req.params.id);
@@ -36,6 +44,7 @@ router.get("/:id", async (req: Request, res: Response) => {
   
     res.status(200).json(usuario);
   })
+router.use(AuthorizeMiddleware);
 
 router.put("/:id", async (req: Request, res: Response) => {
     const { id } = req.params;
