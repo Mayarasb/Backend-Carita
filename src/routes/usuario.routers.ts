@@ -25,8 +25,6 @@ router.post("/", async (req: Request, res: Response) => {
   }
 });
 
-router.use(AuthorizeMiddleware);
-
 router.get("/", async (req: Request, res: Response) => {
     const usuarios = await listAll();
     res.json({ usuarios });
@@ -44,6 +42,8 @@ router.get("/:id", async (req: Request, res: Response) => {
   
     res.status(200).json(usuario);
   })
+router.use(AuthorizeMiddleware);
+
 router.use(AuthorizeMiddleware);
 
 router.put("/:id", async (req: Request, res: Response) => {

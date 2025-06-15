@@ -10,7 +10,7 @@ export const authRouter = express.Router();
  
 authRouter.post("/", async (req: Request, res: Response) => {
   const { email, senha } = req.body;
-  //
+  
 
   let usuario = await getByEmail(email)// achar no banco
   if(!usuario){
