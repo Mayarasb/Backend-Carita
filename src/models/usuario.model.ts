@@ -41,6 +41,7 @@ UsuarioModel.init({
     allowNull: false, 
         field: "status",
         type: DataTypes.BOOLEAN,
+        defaultValue: true
   }
 
 },
