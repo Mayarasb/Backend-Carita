@@ -9,6 +9,7 @@ const router = express.Router();
 router.post("/", async (req: Request, res: Response) => {
   try {
     const usuario = req.body;
+    console.log(usuario)
 
     const senhaHash = await bcrypt.hash(usuario.senha, 10);
     usuario.senha = senhaHash;
@@ -16,7 +17,7 @@ router.post("/", async (req: Request, res: Response) => {
     const novoUsuario = await create(usuario);
 
     // Remover campos antes de enviar para o frontend
-    const { senha, status, id, ...usuarioPublico } = novoUsuario.toJSON();
+    const { senha, status, id, ...usuarioPublico } = novoUsuario;
 
     res.status(201).json(usuarioPublico);
   } catch (error) {

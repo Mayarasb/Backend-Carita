@@ -20,6 +20,50 @@ export const create = async (dadosParceiro: Parceiro): Promise<Parceiro> => {
     return novoParceiro;
 };
 
+export const createParceiroComPonto = async  (req: Request, res: Response) => {
+  try {
+    const {
+      nome,
+      cnpj,
+      telefone,
+      email,
+      tipoParceiro,
+      areaAtuacao,
+      logo,
+      documento,
+      idUsuario,
+      pontoArrecadacao,
+    } = req.body;
+
+    const novoParceiro = await ParceiroModel.create({
+      nome,
+      cnpj,
+      telefone,
+      email,
+      tipoParceiro,
+      areaAtuacao,
+      logo,
+      documento,
+      idUsuario,
+    });
+
+    if (tipoParceiro === 'Captador' && pontoArrecadacao) {
+      await PontoArrecadacaoModel.create({
+        ...pontoArrecadacao,
+        idParceiro: novoParceiro.id,
+      });
+    }
+
+    res.status(201).json({
+      message: 'Parceiro criado com sucesso',
+      parceiro: novoParceiro,
+    });
+  } catch (error) {
+    console.error('Erro ao criar parceiro com ponto:', error);
+    res.status(500).json({ message: 'Erro ao criar parceiro com ponto' });
+  }
+};
+
 
 export const update = async (id: number, data: Partial<Parceiro>): Promise<Parceiro | null> => {
     const parceiro = await ParceiroModel.findByPk(id);

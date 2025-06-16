@@ -23,7 +23,7 @@ authRouter.post("/", async (req: Request, res: Response) => {
     return
   }
   const secret = process.env.AUTH_SECRET || "";
-  const token = jwt.sign({ email: usuario.email }, secret);
-  res.status(200).json({token})
+  const token = jwt.sign({ email: usuario.email, id: usuario.id }, secret);
+  res.status(200).json({ token, id: usuario.id });
   
 });
