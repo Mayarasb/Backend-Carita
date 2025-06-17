@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import express from "express";
-import { create, getById, listAll, update } from "../controllers/organizacao.controller";
+import { create, getById, listAll, update, getByUsuarioId } from "../controllers/organizacao.controller";
 import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
 
 const router = express.Router();
@@ -10,6 +10,17 @@ const router = express.Router();
 router.get("/", async (req: Request, res: Response) => {
     const organizacoes = await listAll();
     res.json({ organizacoes });
+});
+
+router.get('/usuario/:idUsuario', async (req: Request, res: Response) => {
+  const idUsuario = Number(req.params.idUsuario);
+  const organizacao = await getByUsuarioId(idUsuario);
+
+  if (!organizacao) {
+    res.status(404).json({ message: 'Organização não encontrada' });
+  }
+
+   res.status(200).json(organizacao);
 });
 
 router.get("/:id", async (req: Request, res: Response) => {
@@ -39,5 +50,8 @@ router.put("/:id", async (req: Request, res: Response) => {
     const updated = await update(Number(id), req.body);
     res.json(updated);
 });
+
+
+
 
 export default router;
