@@ -33,4 +33,13 @@ export const update = async (id: number, data: Partial<Organizacao>): Promise<Or
 
     await organizacao.update(data);
     return organizacao;
+    
 };
+
+export const getByUsuarioId = async (idUsuario: number): Promise<Organizacao | null> => {
+    const organizacao = await OrganizacaoModel.findOne({
+        where: { idUsuario: idUsuario }
+    });
+    return organizacao;
+};
+
