@@ -24,7 +24,7 @@ router.post("/", async (req: Request, res: Response) => {
 
     if (existente) {
       const duplicado = existente.email === usuario.email ? "E-mail" : "CPF";
-       res.status(400).json({ message: `${duplicado} já cadastrado.` });
+       res.status(400).json({ message: `${duplicado} já cadastrado!` });
        return
     }
 
