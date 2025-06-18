@@ -18,6 +18,7 @@ authRouter.post("/", async (req: Request, res: Response) => {
     return
   }
 
+
   if(!await bcrypt.compare(senha, usuario.senha)){
     res.status(401).json("E-mail ou senha inválidos")
     return
@@ -26,4 +27,5 @@ authRouter.post("/", async (req: Request, res: Response) => {
   const token = jwt.sign({ email: usuario.email, id: usuario.id }, secret);
   res.status(200).json({ token, id: usuario.id });
   
+
 });
