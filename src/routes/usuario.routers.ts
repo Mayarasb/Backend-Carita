@@ -13,7 +13,20 @@ router.post("/", async (req: Request, res: Response) => {
     const usuario = req.body;
     console.log(usuario)
 
-    
+     const existente = await UsuarioModel.findOne({
+      where: {
+        [Op.or]: [
+          { email: usuario.email },
+          { cpf: usuario.cpf }
+        ]
+      }
+    });
+
+    if (existente) {
+      const duplicado = existente.email === usuario.email ? "E-mail" : "CPF";
+       res.status(400).json({ message: `${duplicado} já cadastrado.` });
+       return
+    }
 
     const senhaHash = await bcrypt.hash(usuario.senha, 10);
     usuario.senha = senhaHash;
@@ -47,8 +60,7 @@ router.get("/:id", async (req: Request, res: Response) => {
   
     res.status(200).json(usuario);
   })
-router.use(AuthorizeMiddleware);
-
+  
 router.use(AuthorizeMiddleware);
 
 router.put("/:id", async (req: Request, res: Response) => {
