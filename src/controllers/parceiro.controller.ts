@@ -1,6 +1,6 @@
 import { Parceiro } from "../interfaces/parceiro.interface";
 import { ParceiroModel } from "../models/parceiro.model";
-
+import { pontoArrecadacaoModel } from "../models/pontoArrecadacao.model";
 export const listAll = async (): Promise<Parceiro[]> => {
     const parceiros = await ParceiroModel.findAll();
     return parceiros;
@@ -20,7 +20,9 @@ export const create = async (dadosParceiro: Parceiro): Promise<Parceiro> => {
     return novoParceiro;
 };
 
-export const createParceiroComPonto = async  (req: Request, res: Response) => {
+import { Request, Response } from "express";
+
+export const createParceiroComPonto = async (req: Request, res: Response) => {
   try {
     const {
       nome,
@@ -48,9 +50,25 @@ export const createParceiroComPonto = async  (req: Request, res: Response) => {
     });
 
     if (tipoParceiro === 'Captador' && pontoArrecadacao) {
-      await PontoArrecadacaoModel.create({
-        ...pontoArrecadacao,
-        idParceiro: novoParceiro.id,
+      const {
+        logradouro,
+        numero,
+        bairro,
+        cidade,
+        estado,
+        cep,
+        horarioFuncionamento
+      } = pontoArrecadacao;
+
+      await pontoArrecadacaoModel.create({
+        logradouro,
+        numero,
+        bairro,
+        cidade,
+        estado,
+        cep,
+        horarioFuncionamento,
+        idParceiro: novoParceiro.id
       });
     }
 
@@ -64,7 +82,6 @@ export const createParceiroComPonto = async  (req: Request, res: Response) => {
   }
 };
 
-
 export const update = async (id: number, data: Partial<Parceiro>): Promise<Parceiro | null> => {
     const parceiro = await ParceiroModel.findByPk(id);
     if (!parceiro) return null;
@@ -73,3 +90,15 @@ export const update = async (id: number, data: Partial<Parceiro>): Promise<Parce
     return parceiro;
 };
 
+export const getByUsuarioId = async (idUsuario: number): Promise<Parceiro | null> => {
+  const parceiro = await ParceiroModel.findOne({
+    where: { idUsuario },
+    include: [
+      {
+        model: pontoArrecadacaoModel,
+        as: 'pontoArrecadacao', // usa o alias definido no hasOne
+      },
+    ],
+  });
+  return parceiro;
+};
