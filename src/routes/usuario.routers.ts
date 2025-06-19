@@ -23,10 +23,11 @@ router.post("/", async (req: Request, res: Response) => {
     });
 
     if (existente) {
-      const duplicado = existente.email === usuario.email ? "E-mail" : "CPF";
-       res.status(400).json({ message: `${duplicado} já cadastrado.` });
-       return
-    }
+  const duplicado = existente.email === usuario.email ? "E-mail" : "CPF";
+  console.log(`Erro de cadastro: ${duplicado} já cadastrado.`);
+  res.status(400).json({ message: `${duplicado} já cadastrado.` });
+  return;
+}
 
     const senhaHash = await bcrypt.hash(usuario.senha, 10);
     usuario.senha = senhaHash;
