@@ -15,6 +15,19 @@ export const getById = async (id:number): Promise<Parceiro | null> => {
     return parceiro;
 };
 
+export const getByUsuarioId = async (idUsuario: number): Promise<Parceiro | null> => {
+  const parceiro = await ParceiroModel.findOne({
+    where: { idUsuario },
+    include: [
+      {
+        model: pontoArrecadacaoModel,
+        as: 'pontoArrecadacao', // usa o alias definido no hasOne
+      },
+    ],
+  });
+  return parceiro;
+};
+
 export const create = async (dadosParceiro: Parceiro): Promise<Parceiro> => {
     const novoParceiro = await ParceiroModel.create(dadosParceiro);
     return novoParceiro;
@@ -90,15 +103,3 @@ export const update = async (id: number, data: Partial<Parceiro>): Promise<Parce
     return parceiro;
 };
 
-export const getByUsuarioId = async (idUsuario: number): Promise<Parceiro | null> => {
-  const parceiro = await ParceiroModel.findOne({
-    where: { idUsuario },
-    include: [
-      {
-        model: pontoArrecadacaoModel,
-        as: 'pontoArrecadacao', // usa o alias definido no hasOne
-      },
-    ],
-  });
-  return parceiro;
-};

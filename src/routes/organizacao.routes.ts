@@ -77,9 +77,26 @@ router.post("/", uploadFields, async (req: Request, res: Response) => {
   }
 });
 
-router.put("/:id", async (req: Request, res: Response) => {
+router.put("/:id", uploadFields, async (req: Request, res: Response) => {
   const { id } = req.params;
-  const updated = await update(Number(id), req.body);
+
+  const files = req.files as {
+    [fieldname: string]: Express.Multer.File[];
+  };
+
+  const imagens = {} as any;
+
+  for (const campo in files) {
+    const file = files[campo][0];
+    imagens[campo] = `data:${file.mimetype};base64,${file.buffer.toString("base64")}`;
+  }
+
+  const dadosAtualizados = {
+    ...req.body,
+    ...imagens
+  };
+
+  const updated = await update(Number(id), dadosAtualizados);
   res.json(updated);
 });
 

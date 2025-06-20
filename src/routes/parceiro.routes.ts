@@ -2,7 +2,7 @@ import { Request, Response, Router } from "express";
 import express from "express";
 import { create, listAll, update, getById} from "../controllers/parceiro.controller";
 import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
-import { createParceiroComPonto, getByUsuarioId } from "../controllers/parceiro.controller";
+import { createParceiroComPonto} from "../controllers/parceiro.controller";
 
 const router = express.Router();
 //router.use(AuthorizeMiddleware);
