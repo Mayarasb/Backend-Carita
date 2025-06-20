@@ -14,6 +14,14 @@ export const getById = async (id:number): Promise<Organizacao | null> => {
     return organizacoes;
 };
 
+export const getByUsuarioId = async (idUsuario: number): Promise<Organizacao | null> => {
+    const organizacao = await OrganizacaoModel.findOne({
+        where: { idUsuario: idUsuario }
+    });
+    return organizacao;
+};
+
+
 export const create = async (dadosOrganizacao: Organizacao): Promise<Organizacao | undefined> => {
     // dadosOrganizacao.id = 1
 
@@ -36,10 +44,4 @@ export const update = async (id: number, data: Partial<Organizacao>): Promise<Or
     
 };
 
-export const getByUsuarioId = async (idUsuario: number): Promise<Organizacao | null> => {
-    const organizacao = await OrganizacaoModel.findOne({
-        where: { idUsuario: idUsuario }
-    });
-    return organizacao;
-};
 
