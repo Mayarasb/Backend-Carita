@@ -56,22 +56,6 @@ router.post("/", async (req: Request, res: Response) => {
   }
 });
 
-/**
- * @swagger
- * /:
- *   get:
- *     summary: Endpoint para GET /
- *     tags:
- *       - Usuario
- *     responses:
- *       200:
- *         description: Resposta bem-sucedida
- */
-router.get("/", async (req: Request, res: Response) => {
-    const usuarios = await listAll();
-    res.json({ usuarios });
-})
-
 
 
 /**
@@ -113,7 +97,24 @@ router.put("/:id", async (req: Request, res: Response) => {
     const updated = await update(Number(id), req.body);
     res.json(updated);
 })
+
+
 router.use(AuthorizeMiddleware);
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Endpoint para GET /
+ *     tags:
+ *       - Usuario
+ *     responses:
+ *       200:
+ *         description: Resposta bem-sucedida
+ */
+router.get("/", async (req: Request, res: Response) => {
+    const usuarios = await listAll();
+    res.json({ usuarios });
+})
 
 /**
  * @swagger
