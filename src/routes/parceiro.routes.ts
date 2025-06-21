@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import express from "express";
-import { create, listAll, update, getById} from "../controllers/parceiro.controller";
+import { create, listAll, update, getById, getByUsuarioId} from "../controllers/parceiro.controller";
 import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
 import { createParceiroComPonto} from "../controllers/parceiro.controller";
 
