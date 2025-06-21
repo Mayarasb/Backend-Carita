@@ -22,7 +22,9 @@
     "mysql2": "^3.14.0",
     "sequelize": "^6.37.7",
     "sequelize-typescript": "^2.1.6",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "4.3"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -31,7 +33,10 @@
     "@types/multer": "^1.4.13",
     "@types/node": "^22.13.10",
     "@types/sequelize": "^4.28.20",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "sequelize-cli": "^6.6.3",
+    "swagger-autogen": "^2.23.7",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.2"
   }

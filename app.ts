@@ -6,8 +6,14 @@ import usuarioRoutes from "./src/routes/usuario.routers"
 import { authRouter } from "./src/routes/auth.routes";
 import cors from "cors";
 
-
 const app = express();
+
+import swaggerUi from 'swagger-ui-express';
+import swaggerFile from './swagger-output.json';
+
+// Rota da documentação Swagger
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 app.use(cors())
 app.use(express.json());
 
