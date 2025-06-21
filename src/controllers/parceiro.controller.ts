@@ -1,8 +1,17 @@
 import { Parceiro } from "../interfaces/parceiro.interface";
 import { ParceiroModel } from "../models/parceiro.model";
 import { pontoArrecadacaoModel } from "../models/pontoArrecadacao.model";
+import { UsuarioModel } from "../models/usuario.model";
+
 export const listAll = async (): Promise<Parceiro[]> => {
-    const parceiros = await ParceiroModel.findAll();
+    const parceiros = await ParceiroModel.findAll({
+    include: [
+      {
+        model: UsuarioModel,
+        where: { status: true }, // só traz parceiros cujo usuário está ativo
+      }
+    ]
+  });
     return parceiros;
 };
 

@@ -99,22 +99,6 @@ router.put("/:id", async (req: Request, res: Response) => {
 })
 
 
-router.use(AuthorizeMiddleware);
-/**
- * @swagger
- * /:
- *   get:
- *     summary: Endpoint para GET /
- *     tags:
- *       - Usuario
- *     responses:
- *       200:
- *         description: Resposta bem-sucedida
- */
-router.get("/", async (req: Request, res: Response) => {
-    const usuarios = await listAll();
-    res.json({ usuarios });
-})
 
 /**
  * @swagger
@@ -140,4 +124,38 @@ router.post("/:id/desativar", async (req: Request, res: Response) => {
   res.status(200).json({ message: "Conta desativada com sucesso." });
 })
 
+
+router.use(AuthorizeMiddleware);
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Endpoint para GET /
+ *     tags:
+ *       - Usuario
+ *     responses:
+ *       200:
+ *         description: Resposta bem-sucedida
+ */
+router.get("/", async (req: Request, res: Response) => {
+    const usuarios = await listAll();
+    res.json({ usuarios });
+})
+
+/*router.post("/:id/reativar", async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+    const reativado = await reativar(id);
+
+    if (!reativado) {
+      return res.status(404).json({ message: "Usuário não encontrado" });
+    }
+
+    res.status(200).json({ message: "Conta reativada com sucesso" });
+  } catch (error) {
+    console.error("Erro ao reativar usuário:", error);
+    res.status(500).json({ message: "Erro interno do servidor" });
+  }
+});
+*/
 export default router;
