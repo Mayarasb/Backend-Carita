@@ -53,3 +53,8 @@ export const desativar = async(id:number):Promise<boolean> =>{
     })
     return !!nro_linhas_alteradas;
 }
+
+export const reativar = async (id: number): Promise<boolean> => {
+  const [linhasAtualizadas] = await UsuarioModel.update({ status: true }, { where: { id } });
+  return !!linhasAtualizadas;
+};
