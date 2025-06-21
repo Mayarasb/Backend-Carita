@@ -4,14 +4,14 @@ import parceiroRoutes from "./src/routes/parceiro.routes"
 import  pontoArrecadacaoRoutes from "./src/routes/pontoArrecadacao.routes"
 import usuarioRoutes from "./src/routes/usuario.routers"
 import { authRouter } from "./src/routes/auth.routes";
+
 import cors from "cors";
 
+
 const app = express();
-
 import swaggerUi from 'swagger-ui-express';
-import swaggerFile from './swagger-output.json';
+const swaggerFile = require('./swagger-output.json');
 
-// Rota da documentação Swagger
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(cors())
