@@ -8,6 +8,18 @@ import { Op } from "sequelize";
 
 const router = express.Router();
 
+
+/**
+ * @swagger
+ * /:
+ *   post:
+ *     summary: Endpoint para POST /
+ *     tags:
+ *       - Usuario
+ *     responses:
+ *       200:
+ *         description: Resposta bem-sucedida
+ */
 router.post("/", async (req: Request, res: Response) => {
   try {
     const usuario = req.body;
@@ -44,6 +56,17 @@ router.post("/", async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Endpoint para GET /
+ *     tags:
+ *       - Usuario
+ *     responses:
+ *       200:
+ *         description: Resposta bem-sucedida
+ */
 router.get("/", async (req: Request, res: Response) => {
     const usuarios = await listAll();
     res.json({ usuarios });
@@ -51,6 +74,17 @@ router.get("/", async (req: Request, res: Response) => {
 
 
 
+/**
+ * @swagger
+ * /:id:
+ *   get:
+ *     summary: Endpoint para GET /:id
+ *     tags:
+ *       - Usuario
+ *     responses:
+ *       200:
+ *         description: Resposta bem-sucedida
+ */
 router.get("/:id", async (req: Request, res: Response) => {
     const id = Number(req.params.id);
     const usuario = await getById(id); 
@@ -62,14 +96,36 @@ router.get("/:id", async (req: Request, res: Response) => {
     res.status(200).json(usuario);
   })
   
-router.use(AuthorizeMiddleware);
 
+/**
+ * @swagger
+ * /:id:
+ *   put:
+ *     summary: Endpoint para PUT /:id
+ *     tags:
+ *       - Usuario
+ *     responses:
+ *       200:
+ *         description: Resposta bem-sucedida
+ */
 router.put("/:id", async (req: Request, res: Response) => {
     const { id } = req.params;
     const updated = await update(Number(id), req.body);
     res.json(updated);
 })
+router.use(AuthorizeMiddleware);
 
+/**
+ * @swagger
+ * /:id/desativar:
+ *   post:
+ *     summary: Endpoint para POST /:id/desativar
+ *     tags:
+ *       - Usuario
+ *     responses:
+ *       200:
+ *         description: Resposta bem-sucedida
+ */
 router.post("/:id/desativar", async (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
