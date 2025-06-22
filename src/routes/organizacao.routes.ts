@@ -14,7 +14,7 @@ const router = express.Router();
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
-//router.use(AuthorizeMiddleware);
+
 
 
 /**
@@ -33,7 +33,7 @@ router.get("/", async (req: Request, res: Response) => {
   res.json({ organizacoes });
 });
 
-
+router.use(AuthorizeMiddleware);
 /**
  * @swagger
  * /usuario/:idUsuario:
