@@ -5,7 +5,7 @@ import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
 import { createParceiroComPonto} from "../controllers/parceiro.controller";
 
 const router = express.Router();
-//router.use(AuthorizeMiddleware);
+router.use(AuthorizeMiddleware);
 
 /**
  * @swagger

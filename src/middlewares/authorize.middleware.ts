@@ -9,9 +9,13 @@ export const AuthorizeMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  const { authorization } = req.headers;
+  let { authorization } = req.headers;
   const secret = process.env.AUTH_SECRET || "";
  
+  if (authorization && authorization.startsWith("Bearer ")) {
+    authorization = authorization.split(' ')[1];
+  }
+
   jwt.verify(authorization || "", secret, (err) => {
     if (err) {
       return res.status(401).json({ message: "Invalid token" });

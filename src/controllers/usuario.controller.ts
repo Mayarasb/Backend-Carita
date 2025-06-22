@@ -58,3 +58,4 @@ export const reativar = async (id: number): Promise<boolean> => {
   const [linhasAtualizadas] = await UsuarioModel.update({ status: true }, { where: { id } });
   return !!linhasAtualizadas;
 };
+

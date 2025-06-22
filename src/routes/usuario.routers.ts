@@ -57,6 +57,7 @@ router.post("/", async (req: Request, res: Response) => {
 });
 
 
+router.use(AuthorizeMiddleware);
 
 /**
  * @swagger
@@ -125,7 +126,6 @@ router.post("/:id/desativar", async (req: Request, res: Response) => {
 })
 
 
-router.use(AuthorizeMiddleware);
 /**
  * @swagger
  * /:
@@ -141,6 +141,7 @@ router.get("/", async (req: Request, res: Response) => {
     const usuarios = await listAll();
     res.json({ usuarios });
 })
+
 
 /*router.post("/:id/reativar", async (req: Request, res: Response) => {
   try {
