@@ -2,5 +2,9 @@
   "development": {
     "dialect": "sqlite",
     "storage":"./database.sqlite"
+  },
+  "production": {
+  "storage": "src/config/database.sqlite",
+  "dialect": "sqlite"
   }
 }
