@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node app.ts",
     "dev": "ts-node-dev --respawn --transpile-only ./app.ts",
     "migration:create": "npx sequelize-cli migration:generate --name",
     "migrate": "npx sequelize-cli db:migrate",
