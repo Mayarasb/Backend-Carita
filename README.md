@@ -121,6 +121,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
   <img src="https://img.shields.io/badge/Jira-%230052CC.svg?style=for-the-badge&logo=jira&logoColor=white"/>
   <img src="https://img.shields.io/badge/Node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white"/>
   <img src="https://img.shields.io/badge/SQLite-%23003B57.svg?style=for-the-badge&logo=sqlite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SQL%20Server-%23CC2927.svg?style=for-the-badge&logo=microsoft-sql-server&logoColor=white"/>
 </p>
 
 ## 👥 EQUIPE
@@ -193,19 +194,44 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 
 ## 📊 **API Endpoints**
 
-### **Autenticação**
+### **ORGANIZAÇÃO**
 ```http
-POST /api/auth/login              # Login de usuários
-POST /api/auth/register/fornecedor # Cadastro de fornecedores
-POST /api/auth/register/beneficiario # Cadastro de beneficiários
+POST  /autenticação           # Autenticação de Login
 ```
 
-### **Lançamentos**
+### **ORGANIZAÇÃO**
 ```http
-GET    /api/lancamentos           # Listar lançamentos
-POST   /api/lancamentos           # Criar lançamento
-PUT    /api/lancamentos/:id       # Atualizar lançamento
-DELETE /api/lancamentos/:id       # Excluir lançamento
+GET    /organizacao           # Listar organizações
+POST  /organizacao           # Criar organização
+GET    /organizacao/:id       # Buscar organização por ID
+PUT   /organizacao/:id       # Atualizar organização
+```
+
+### **PONTO DE ARRECADAÇÃO**
+```http
+GET     /ponto-arrecadacao            # Listar pontos de arrecadação
+POST   /ponto-arrecadacao            # Criar ponto de arrecadação
+GET     /ponto-arrecadacao/:id        # Buscar ponto de arrecadação por ID
+PUT     /ponto-arrecadacao/:id        # Atualizar ponto de arrecadação
+DELETE /ponto-arrecadacao/:id        # Excluir ponto de arrecadação (❌ ainda não implementado)
+POST    /auth                  # Autenticar usuário e gerar token JWT
+```
+
+### **PARCEIRO**
+```http
+GET   /parceiro              # Listar parceiros
+POST   /parceiro              # Criar parceiro
+GET    /parceiro/:id          # Buscar parceiro por ID
+PUT   /parceiro/:id          # Atualizar parceiro
+```
+
+### **USUARIO**
+```http
+GET     /usuario                    # Listar usuários
+POST    /usuario                    # Criar usuário
+GET     /usuario/:id                # Buscar usuário por ID
+PUT     /usuario/:id                # Atualizar usuário
+POST    /usuario/:id/desativar      # Desativar usuário
 ```
 
 ## 📦 **Instalação e Configuração**
