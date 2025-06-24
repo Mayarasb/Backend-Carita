@@ -1,15 +1,5 @@
 ![Image](https://github.com/user-attachments/assets/c001c2d9-8e5d-4671-a09d-bad60fdf3811)
 
-<p align="center">
-  <a href="#sobre">Sobre</a>  |  
-  <a href="#publico">Publico</a>  |
-  <a href="#sprints">Sprints</a>  |
-  <a href="#backlog">Backlog</a>  |  
-  <a href="#prototipo-e-documentação">Protótipo & Documentação</a>  |  
-  <a href="#tecnologias-utilizadas">Tecnologias</a>  |  
-  <a href="#equipe">Equipe</a>
-</p>
-
 ## 📌 Status do Projeto : Em andamento
 
 ## 📖 SOBRE O PROJETO
@@ -35,14 +25,14 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 ![Image](https://github.com/user-attachments/assets/d44ab38a-9592-43b1-b936-74cf2592c9cb)
 
 ## 📗 REQUISITOS FUNCIONAIS 
-![Image](https://github.com/user-attachments/assets/8d394a28-25de-45d2-8d8b-b0a685156071)
+![Image](https://github.com/user-attachments/assets/1c8ebbc4-104e-4e63-82a4-30846c74fd05)
 
 ## 📕 REQUISITOS NÃO FUNCIONAIS
-![Image](https://github.com/user-attachments/assets/f4cb3a9d-0972-4638-9db1-d3fd842113ab)
+![Image](https://github.com/user-attachments/assets/6b183711-7652-4406-b767-5d9554d39858)
 
 ## 🎯 **Objetivos de Desenvolvimento Sustentável (ODS)**
 
-![3](https://github.com/user-attachments/assets/404e604a-eb87-40e2-b8c7-58eeab32c2d5)
+![Image](https://github.com/user-attachments/assets/642b0e1c-a379-44f7-9953-eed1dcb629d3)
 
 
 ## 📅 ENTREGA DAS SPRINTS
@@ -80,9 +70,9 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
   </tr>
   <tr>
     <td>Sprint 5</td>
-    <td>01/06 - 27/09</td>
+    <td>01/06 - 24/06</td>
     <td>Fase de teste final, documentação pronta e projeto integrado e funcionando</td>
-    <td>🟡 A iniciar</td>
+    <td>✅ Concluído</td>
   </tr>
 </table>
 
@@ -112,7 +102,9 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 > - Documentação geral: [clique aqui para acessar]()
 > - Técnicas de Programação: [clique aqui para acessar]()
 > - Interação Humano Computador: [clique aqui para acessar]()
-> - Banco de Dados não relacional - API: [clique aqui para acessar]()
+> - Banco de Dados relacional - API: [clique aqui para acessar]()
+> - Front-End: [clique aqui para acessar](https://github.com/Vanessa-Nobrega/frontend.Carita)
+> - Back-End: [clique aqui para acessar](https://github.com/Mayarasb/Backend-Carita)
 
 ## 🛠️ TECNOLOGIAS UTILIZADAS
 
@@ -121,7 +113,6 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
   <img src="https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/>
   <img src="https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
   <img src="https://img.shields.io/badge/Angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white"/>
-  <img src="https://img.shields.io/badge/SQL%20Server-%23CC2927.svg?style=for-the-badge&logo=microsoft-sql-server&logoColor=white"/>
   <img src="https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
   <img src="https://img.shields.io/badge/BrModelo-%2300BFFF.svg?style=for-the-badge&logo=data&logoColor=white"/>
   <img src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white"/>
@@ -129,6 +120,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
   <img src="https://img.shields.io/badge/VSCode-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
   <img src="https://img.shields.io/badge/Jira-%230052CC.svg?style=for-the-badge&logo=jira&logoColor=white"/>
   <img src="https://img.shields.io/badge/Node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SQLite-%23003B57.svg?style=for-the-badge&logo=sqlite&logoColor=white"/>
 </p>
 
 ## 👥 EQUIPE
@@ -155,7 +147,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
       <td>Fernando Ribeiro</td>
       <td>Product Owner</td>
       <td>
-        <a href="https://github.com/arieleperes" target="_blank">
+        <a href="https://github.com/FernandoRSantos" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
         </a>
       </td>
@@ -164,7 +156,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
       <td>Guilherme Pazetti</td>
       <td>Database Administrator</td>
       <td>
-        <a href="https://github.com/arieleperes" target="_blank">
+        <a href="https://github.com/Pazetti" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
         </a>
       </td>
@@ -191,7 +183,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
       <td>Vanessa Capuano</td>
       <td>Desenvolvedora Full Stack</td>
       <td>
-        <a href="https://github.com/arieleperes" target="_blank">
+        <a href="https://github.com/Vanessa-Nobrega" target="_blank">
           <img src="https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white" alt="GitHub Badge">
         </a>
       </td>
@@ -263,12 +255,17 @@ cd Projeto-carita-main
 npm install
 
 # Rodar em modo desenvolvimento
-npm run dev
+npm start
 
 # Ou rodar em produção
 npm run build
 npm run serve:ssr:Projeto-carita
 ```
+
+## 📚 **Swagger - Documentação Interativa da API**
+- Acesse: [http://localhost:3008/api-docs](http://localhost:3008/api-docs)
+- Faça login pela rota `/api/auth/login` e use o botão **Authorize** para testar rotas protegidas.
+- Todas as rotas principais estão documentadas com exemplos.
 
 ## 📄 LICENÇA
 
