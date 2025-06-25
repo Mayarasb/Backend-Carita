@@ -8,7 +8,7 @@ export const listAll = async (): Promise<Parceiro[]> => {
     include: [
       {
         model: UsuarioModel,
-        where: { status: true }, // só traz parceiros cujo usuário está ativo
+        where: { status: true }, 
       }
     ]
   });

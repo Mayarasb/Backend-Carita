@@ -23,7 +23,7 @@ export const getByUsuarioId = async (idUsuario: number): Promise<Organizacao | n
 
 
 export const create = async (dadosOrganizacao: Organizacao): Promise<Organizacao | undefined> => {
-    // dadosOrganizacao.id = 1
+   
 
     try{
     console.log(JSON.stringify(dadosOrganizacao));
