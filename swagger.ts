@@ -5,7 +5,7 @@ const doc = {
     title: 'API Carita',
     description: 'Documentação da API do projeto Carita',
   },
-  host: 'localhost:3000',
+  host: 'https://thriving-strudel-9e3188.netlify.app/',
   schemes: ['http'],
 };
 
