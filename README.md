@@ -99,9 +99,9 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 
 > 🔗 **Links das documentações** 
 
-> - Documentação geral: [clique aqui para acessar]()
-> - Técnicas de Programação: [clique aqui para acessar]()
-> - Interação Humano Computador: [clique aqui para acessar]()
+> - Documentação geral: [clique aqui para acessar](https://github.com/Mayarasb/Backend-Carita/blob/main/Documenta%C3%A7%C3%B5es/Documenta%C3%A7%C3%A3o%203%C2%B0%20Semestre%20oficial.pdf)
+> - Técnicas de Programação: [clique aqui para acessar](https://github.com/Mayarasb/Backend-Carita/blob/main/Documenta%C3%A7%C3%B5es/Carit%C3%A1%20tecnicas%20de%20programa%C3%A7%C3%A3o%20II.pdf)
+> - Interação Humano Computador: [clique aqui para acessar](https://github.com/Mayarasb/Backend-Carita/blob/main/Documenta%C3%A7%C3%B5es/Documenta%C3%A7%C3%A3o%20IHC.pdf)
 > - Banco de Dados relacional - API: [clique aqui para acessar](https://backend-carita-1.onrender.com/doc/)
 > - Front-End: [clique aqui para acessar](https://github.com/Vanessa-Nobrega/frontend.Carita)
 > - Back-End: [clique aqui para acessar](https://github.com/Mayarasb/Backend-Carita)
