@@ -102,7 +102,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 > - Documentação geral: [clique aqui para acessar]()
 > - Técnicas de Programação: [clique aqui para acessar]()
 > - Interação Humano Computador: [clique aqui para acessar]()
-> - Banco de Dados relacional - API: [clique aqui para acessar]()
+> - Banco de Dados relacional - API: [clique aqui para acessar](https://backend-carita-1.onrender.com/doc/)
 > - Front-End: [clique aqui para acessar](https://github.com/Vanessa-Nobrega/frontend.Carita)
 > - Back-End: [clique aqui para acessar](https://github.com/Mayarasb/Backend-Carita)
 
@@ -196,7 +196,7 @@ Nosso público-alvo é composto por pessoas físicas engajadas com causas sociai
 
 ### **ORGANIZAÇÃO**
 ```http
-POST  /autenticação           # Autenticação de Login
+POST  /autenticação          # Autenticar usuário e gerar token JWT
 ```
 
 ### **ORGANIZAÇÃO**
@@ -213,8 +213,7 @@ GET     /ponto-arrecadacao            # Listar pontos de arrecadação
 POST   /ponto-arrecadacao            # Criar ponto de arrecadação
 GET     /ponto-arrecadacao/:id        # Buscar ponto de arrecadação por ID
 PUT     /ponto-arrecadacao/:id        # Atualizar ponto de arrecadação
-DELETE /ponto-arrecadacao/:id        # Excluir ponto de arrecadação (❌ ainda não implementado)
-POST    /auth                  # Autenticar usuário e gerar token JWT
+DELETE /ponto-arrecadacao/:id        # Excluir ponto de arrecadação 
 ```
 
 ### **PARCEIRO**
@@ -244,9 +243,15 @@ POST    /usuario/:id/desativar      # Desativar usuário
 - TypeScript
 - SQL Server (para o banco de dados)
 
-### **Clone o Repositório**
+### **Clone o Repositório Backend**
 ```bash
-git clone https://github.com/carita/projeto-carita.git
+git clone https://github.com/Mayarasb/Backend-Carita
+cd projeto-carita
+```
+
+### **Clone o Repositório Front End**
+```bash
+git clone https://github.com/Vanessa-Nobrega/frontend.Carita
 cd projeto-carita
 ```
 
