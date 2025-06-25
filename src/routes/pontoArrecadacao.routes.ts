@@ -5,7 +5,7 @@ import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
 
 const router = express.Router();
 
-router.use(AuthorizeMiddleware);
+
 
 /**
  * @swagger
@@ -44,7 +44,7 @@ router.get("/:id", async (req: Request, res: Response) => {
   
     res.status(200).json(pontoArrecadacao);
   });
-
+router.use(AuthorizeMiddleware);
   /**
  * @swagger
  * /:
