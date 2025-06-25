@@ -5,7 +5,7 @@ import { AuthorizeMiddleware } from "../middlewares/authorize.middleware";
 import { createParceiroComPonto} from "../controllers/parceiro.controller";
 
 const router = express.Router();
-router.use(AuthorizeMiddleware);
+
 
 /**
  * @swagger
@@ -23,6 +23,7 @@ router.get("/", async (req: Request, res: Response) => {
     res.json({ parceiros });
 });
 
+router.use(AuthorizeMiddleware);
 /**
  * @swagger
  * /usuario/:idUsuario:
