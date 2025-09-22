@@ -11,6 +11,8 @@ export class UsuarioModel extends Model<Usuario , UsuarioCreationalAttributes> {
   public email!: string;
   public senha!: string;
   public status!: boolean;
+  public readonly createdAt!: Date; 
+  public readonly updatedAt!: Date;
 }
 
 UsuarioModel.init({
@@ -42,13 +44,24 @@ UsuarioModel.init({
         field: "status",
         type: DataTypes.BOOLEAN,
         defaultValue: true
-  }
+  }, 
+  createdAt: {
+  type: DataTypes.DATE,
+  allowNull: false,
+  field: 'createdAt',
+},
+updatedAt: {
+  type: DataTypes.DATE,
+  allowNull: false,
+  field: 'updatedAt',
+},
 
 },
   {
     sequelize, 
     tableName: 'usuario', 
     modelName: 'Usuarios',  
-    timestamps: false,       
+    timestamps: true,  
+       
   }
 );

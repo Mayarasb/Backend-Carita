@@ -3,8 +3,8 @@ import { Usuario } from "../interfaces/usuario.interface";
 import { UsuarioModel } from "../models/usuario.model";
 
 export const listAll = async (): Promise<Usuario[]> => {
-    const usuarios = await UsuarioModel.findAll();
-    return usuarios;
+  const usuarios = await UsuarioModel.findAll(); // Certifique-se de que está pegando todos os campos, inclusive senha
+  return usuarios;
 };
 
 export const getById = async (id:number): Promise<Usuario| null> => {

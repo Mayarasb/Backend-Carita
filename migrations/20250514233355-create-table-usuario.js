@@ -25,6 +25,16 @@ module.exports = {
       status:{
         allowNull: false, 
             type: DataTypes.BOOLEAN
+      },
+        createdAt: {                     // <-- criado automaticamente
+        allowNull: false,
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
+       updatedAt: {                     // <-- atualizado a cada update
+        allowNull: false,
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
       }
    }
   )},
