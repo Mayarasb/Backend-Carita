@@ -1,6 +1,12 @@
 // src/server.ts
 import express from 'express';
 import cors from 'cors';
+import organizacaoRoutes from "./routes/organizacao.routes";
+import parceiroRoutes from "./routes/parceiro.routes"
+import  pontoArrecadacaoRoutes from "./routes/pontoArrecadacao.routes"
+import usuarioRoutes from "./routes/usuario.routers"
+import { authRouter } from "./routes/auth.routes";
+import { AuthorizeMiddleware } from './middlewares/authorize.middleware';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { initSocket, broadcastBanner, broadcastMetrics } from './realtime/socket';
@@ -8,7 +14,16 @@ import { initSocket, broadcastBanner, broadcastMetrics } from './realtime/socket
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
+import swaggerUi from 'swagger-ui-express';
+const swaggerFile = require('./swagger-output.json');
+
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
+// app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
+app.use(cors({
+    origin: "*"
+}));
+app.use(express.json());
 app.use(bodyParser.json());
 
 // ==== MÉTRICAS EM MEMÓRIA (exemplo simples) ====
@@ -25,6 +40,14 @@ app.post('/admin/metrics/familias', (req, res) => {
   broadcastMetrics({ familiasAjudadas });
   res.json({ ok: true, familiasAjudadas });
 });
+
+app.use("/organizacoes", AuthorizeMiddleware, organizacaoRoutes);
+app.use("/parceiros",AuthorizeMiddleware,parceiroRoutes)
+app.use("/pontosArrecadacao",AuthorizeMiddleware,pontoArrecadacaoRoutes)
+app.use("/usuarios",usuarioRoutes)
+app.use("/autenticacao", authRouter)
+
+
 
 // Endpoint para disparar um banner público
 app.post('/admin/helper/banner', (req, res) => {
