@@ -2,6 +2,12 @@ import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import Pusher from 'pusher';
 import cors from 'cors';
+import organizacaoRoutes from "./routes/organizacao.routes";
+import parceiroRoutes from "./routes/parceiro.routes"
+import  pontoArrecadacaoRoutes from "./routes/pontoArrecadacao.routes"
+import usuarioRoutes from "./routes/usuario.routers"
+import { authRouter } from "./routes/auth.routes";
+import { AuthorizeMiddleware } from './middlewares/authorize.middleware';
 
 const app = express();
 
@@ -22,6 +28,13 @@ const pusher = new Pusher({
   cluster: 'mt1',
   useTLS: true
 });
+
+app.use("/organizacoes", AuthorizeMiddleware, organizacaoRoutes);
+app.use("/parceiros",AuthorizeMiddleware,parceiroRoutes)
+app.use("/pontosArrecadacao",AuthorizeMiddleware,pontoArrecadacaoRoutes)
+app.use("/usuarios",usuarioRoutes)
+app.use("/autenticacao", authRouter)
+
 
 // Endpoint para enviar notificação
 app.post('/send-reminder', (req: Request, res: Response) => {
@@ -47,7 +60,8 @@ app.post('/pusher/auth', (req: Request, res: Response) => {
   const channel = req.body.channel_name;
 
   if (!socketId || !channel) {
-    return res.status(400).json({ error: 'socket_id e channel_name são obrigatórios' });
+    res.status(400).json({ error: 'socket_id e channel_name são obrigatórios' });
+    return;
   }
 
   const auth = pusher.authenticate(socketId, channel);

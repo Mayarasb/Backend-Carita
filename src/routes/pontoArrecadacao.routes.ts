@@ -44,7 +44,7 @@ router.get("/:id", async (req: Request, res: Response) => {
   
     res.status(200).json(pontoArrecadacao);
   });
-router.use(AuthorizeMiddleware);
+// router.use(AuthorizeMiddleware);
   /**
  * @swagger
  * /:
