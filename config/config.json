@@ -4,7 +4,7 @@
     "storage":"./database.sqlite"
   },
   "production": {
-  "storage": "src/config/database.sqlite",
+  "storage": "./database.sqlite",
   "dialect": "sqlite"
   }
 }

@@ -47,7 +47,8 @@ app.post('/pusher/auth', (req: Request, res: Response) => {
   const channel = req.body.channel_name;
 
   if (!socketId || !channel) {
-    return res.status(400).json({ error: 'socket_id e channel_name são obrigatórios' });
+    res.status(400).json({ error: 'socket_id e channel_name são obrigatórios' });
+    return;
   }
 
   const auth = pusher.authenticate(socketId, channel);

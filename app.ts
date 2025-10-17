@@ -4,6 +4,7 @@ import parceiroRoutes from "./src/routes/parceiro.routes"
 import  pontoArrecadacaoRoutes from "./src/routes/pontoArrecadacao.routes"
 import usuarioRoutes from "./src/routes/usuario.routers"
 import { authRouter } from "./src/routes/auth.routes";
+import eventosRoutes from "./src/routes/eventos.routes"
 
 import cors from "cors";
 
@@ -22,7 +23,7 @@ app.use("/parceiros",parceiroRoutes)
 app.use("/pontosArrecadacao",pontoArrecadacaoRoutes)
 app.use("/usuarios",usuarioRoutes)
 app.use("/autenticacao", authRouter)
-
+app.use("/eventos", eventosRoutes);
 
 
 app.listen(3000, () => {

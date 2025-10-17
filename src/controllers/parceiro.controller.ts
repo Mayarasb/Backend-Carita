@@ -38,8 +38,13 @@ export const getByUsuarioId = async (idUsuario: number): Promise<Parceiro | null
 };
 
 export const create = async (dadosParceiro: Parceiro): Promise<Parceiro> => {
+  try{
     const novoParceiro = await ParceiroModel.create(dadosParceiro);
     return novoParceiro;
+  } catch(error){
+    console.error("Erro ao criar parceiro:", error);
+    throw error;
+  }
 };
 
 import { Request, Response } from "express";
@@ -58,6 +63,7 @@ export const createParceiroComPonto = async (req: Request, res: Response) => {
       idUsuario,
       pontoArrecadacao,
     } = req.body;
+
 
     const novoParceiro = await ParceiroModel.create({
       nome,

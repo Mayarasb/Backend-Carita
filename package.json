@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only app.ts",
     "start": "node dist/server.js",
     "build": "tsc",
     "migration:create": "npx sequelize-cli migration:generate --name",
