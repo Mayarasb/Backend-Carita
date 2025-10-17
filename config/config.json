@@ -5,6 +5,7 @@
   },
   "production": {
   "storage": "./database.db",
+
   "dialect": "sqlite"
   }
 }

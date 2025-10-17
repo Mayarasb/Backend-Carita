@@ -47,7 +47,11 @@ app.use("/pontosArrecadacao",AuthorizeMiddleware,pontoArrecadacaoRoutes)
 app.use("/usuarios",usuarioRoutes)
 app.use("/autenticacao", authRouter)
 
-
+//mudou isso aqui 
+  if (!socketId || !channel) {
+    res.status(400).json({ error: 'socket_id e channel_name são obrigatórios' });
+    return;
+  }
 
 // Endpoint para disparar um banner público
 app.post('/admin/helper/banner', (req, res) => {
