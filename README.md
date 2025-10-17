@@ -1,4 +1,4 @@
-![Image](https://raw.githubusercontent.com/Pazetti/Backend-Carita/main/succubus/Backend-Carita.zip)
+![Carita-Banner](https://github.com/user-attachments/assets/4e707fe9-2283-4e9b-b036-3e678ceb8f3b)
 
 ## 📌 Status do Projeto : Em andamento
 
