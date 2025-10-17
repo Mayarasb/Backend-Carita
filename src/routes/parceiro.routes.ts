@@ -23,7 +23,7 @@ router.get("/", async (req: Request, res: Response) => {
     res.json({ parceiros });
 });
 
-router.use(AuthorizeMiddleware);
+// router.use(AuthorizeMiddleware);
 /**
  * @swagger
  * /usuario/:idUsuario:

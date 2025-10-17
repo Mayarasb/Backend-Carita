@@ -15,7 +15,9 @@ const swaggerFile = require('./swagger-output.json');
 
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-app.use(cors())
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json());
 
 app.use("/organizacoes", organizacaoRoutes);
