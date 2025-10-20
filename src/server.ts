@@ -10,6 +10,7 @@ import { AuthorizeMiddleware } from './middlewares/authorize.middleware';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { initSocket, broadcastBanner, broadcastMetrics } from './realtime/socket';
+import paymentRoutes from './routes/rotasPagamento';
 
 dotenv.config();
 
@@ -67,8 +68,11 @@ app.get('/public/metrics', (req, res) => {
   res.json({ familiasAjudadas });
 });
 
+app.use('/api/payments', paymentRoutes);
+
 const PORT = process.env.PORT || 3000;
 const server = initSocket(app);
 server.listen(PORT, () => {
   console.log(`HTTP + Socket.IO em http://localhost:${PORT}`);
 });
+
